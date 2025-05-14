@@ -1,0 +1,42 @@
+---
+import { pathWithBase } from "src/utils";
+
+const links = [
+  { name: "Listado", path: "/" },
+  { name: "Paginado", path: "/pokemons/1" },
+  { name: "Favoritos", path: "/favorites" },
+  { name: "Blog", path: "#" },
+];
+
+const currentPath = Astro.url.pathname;
+const currentPathWithBase = currentPath.replace(pathWithBase(""), "");
+---
+
+<nav class="bg-white shadow dark:bg-black">
+  <div
+    class="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300"
+  >
+    {
+      links.map(({ name, path }) => (
+        <div>
+          <a
+            href={pathWithBase(path)}
+            class={
+              "mx-4 text-lg font-semibold text-gray-900 dark:text-gray-100"
+            }
+          >
+            {name}
+          </a>
+          {currentPathWithBase === path ? (
+            <div
+              transition:name="menu-line"
+              class="border-b-2 border-blue-500 mx-4"
+            />
+          ) : (
+            <div class="border-b-2 border-transparent" />
+          )}
+        </div>
+      ))
+    }
+  </div>
+</nav>

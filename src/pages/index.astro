@@ -1,5 +1,6 @@
 ---
 import PokemonCard from "@components/pokemons/PokemonCard.astro";
+import Title from "@components/shared/Title.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 import MainLayout from "@layouts/MainLayout.astro";
 
@@ -9,7 +10,7 @@ const pokemons = data.results;
 ---
 
 <MainLayout title="Pokemon Static Page | Home">
-  <h1>Listado de Pokemons</h1>
+  <Title>Listado de Pokemons </Title>
   <hr />
   <section
     aria-label="Listado de Pokemons"

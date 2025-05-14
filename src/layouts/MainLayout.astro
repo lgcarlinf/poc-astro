@@ -1,7 +1,9 @@
 ---
+import NavBar from "@components/shared/NavBar.astro";
 import "../styles/global.css";
 import { pathWithBase } from "../utils/index";
 import { siteInfo } from "src/constants/site-info";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -38,8 +40,9 @@ const {
       }
     </style>
   </head>
-  <body class="bg-black text-slate-100 m-auto max-w-3xl">
-    <main class="mt-10">
+  <body class="bg-black text-slate-100">
+    <NavBar />
+    <main class="mt-10 m-auto max-w-3xl">
       <slot />
     </main>
   </body>
